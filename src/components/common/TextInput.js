@@ -10,7 +10,7 @@ function TextInput(props) {
                     type="text"
                     name={props.name}
                     className="form-control"
-                    value={props.calule}
+                    defaultValue={props.value}
                     onChange={props.onChange}
                 />
             </div>

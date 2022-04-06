@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-// import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import CourseForm from "./CourseForm";
+import { getAuthors } from "../api/authorApi";
 
 const ManageCoursePage = props => {
     // console.log("props.match.params.slug", props.match.params.slug)
@@ -11,6 +11,12 @@ const ManageCoursePage = props => {
         authorId: null,
         category: ""
     })
+
+    const [author, setAuthor] = useState([])
+
+    useEffect(() => {
+        getAuthors().then(_author => setAuthor(_author));
+    }, []);
 
     function handleChange({ target }) {
         //debugger
@@ -25,7 +31,11 @@ const ManageCoursePage = props => {
             <h2>Manage Course</h2>
             {/* {props.match.params.slug} */}
             {/* {slug} */}
-            <CourseForm course={course} onChange={handleChange} />
+            <CourseForm
+                course={course}
+                onChange={handleChange}
+                author={author}
+            />
         </>
     );
 };
