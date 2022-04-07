@@ -1,15 +1,20 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Header from "./common/Header";
 import HomePage from "./HomePage";
-import CoursesPage from "./CoursesPage";
 import About from "./About";
-import ManageCoursePage from "./ManageCoursePage";
+import Header from "./common/Header";
+import CoursesPage from "./CoursesPage";
+import { Route, Switch, Redirect } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage";
+import ManageCoursePage from "./ManageCoursePage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
+
+
 
 function App() {
     return (
         <div className="container-fluid">
+            <ToastContainer autoClose={1000} hideProgressBar />
             <Header />
             <Switch>
                 <Route path="/" exact component={HomePage} />
@@ -17,8 +22,8 @@ function App() {
                 <Route path="/about" component={About} />
                 <Route path="/course/:slug" component={ManageCoursePage} />
                 <Route path="/course" component={ManageCoursePage} />
-                <Route component={NotFoundPage} />
                 <Redirect from="/about-page" to="about" />
+                <Route component={NotFoundPage} />
             </Switch>
         </div>
     );

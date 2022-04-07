@@ -1,30 +1,74 @@
 import React, { useState, useEffect } from "react";
 import CourseForm from "./CourseForm";
-import { getAuthors } from "../api/authorApi";
+import * as courseApi from "../api/courseApi"
+// import * as authorApi from "../api/authorApi"
+import { toast } from "react-toastify";
 
 const ManageCoursePage = props => {
-    // console.log("props.match.params.slug", props.match.params.slug)
-    // const { slug } = useParams()
+    const [errors, setErrors] = useState({});
+
     const [course, setCourse] = useState({
         id: null,
         slug: "",
+        title: "",
         authorId: null,
         category: ""
     })
 
-    const [author, setAuthor] = useState([])
-
     useEffect(() => {
-        getAuthors().then(_author => setAuthor(_author));
-    }, []);
+        const slug = props.match.params.slug
+        if (slug) {
+            courseApi.getCourseBySlug(slug).then(_course => setCourse(_course))
+        }
+    }, [props.match.params.slug])
+
+
 
     function handleChange({ target }) {
-        //debugger
         setCourse({
             ...course,
-            [target.id]: target.value
+            [target.name]: target.value
         })
     }
+
+    // const authors = [
+    //     {
+    //         "id": 1,
+    //         "name": "Cory House"
+    //     },
+    //     {
+    //         "id": 2,
+    //         "name": "Scott Allen"
+    //     },
+    //     {
+    //         "id": 3,
+    //         "name": "Dan Wahlin"
+    //     }
+    // ]
+
+
+
+    function formIsValid() {
+        const _errors = {};
+
+        if (!course.title) _errors.title = "Title is required";
+        if (!course.authorId) _errors.authorId = "Author ID is required";
+        if (!course.category) _errors.category = "Category is required";
+
+        setErrors(_errors);
+        // Form is valid if the errors object has no properties
+        return Object.keys(_errors).length === 0;
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        if (!formIsValid()) return;
+        courseApi.saveCourse(course).then(() => {
+            props.history.push("/courses");
+            toast.success("Course saved.");
+        });
+    }
+
 
     return (
         <>
@@ -32,9 +76,11 @@ const ManageCoursePage = props => {
             {/* {props.match.params.slug} */}
             {/* {slug} */}
             <CourseForm
+                errors={errors}
                 course={course}
                 onChange={handleChange}
-                author={author}
+                // authors={authors}
+                onSubmit={handleSubmit}
             />
         </>
     );

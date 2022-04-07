@@ -1,20 +1,21 @@
 import React from 'react';
 
 function Select(props) {
-    console.log("Select", props.value)
+    console.log("Select", props.authors[1].name)
     return (
         <>
             <div className="field">
-                <label htmlFor="author">Author</label>
+                <label htmlFor="author">author</label>
                 <select
                     display="none"
                     className="form-control"
+                    name="authorId"
+                    value={props.value}
+                    onChange={props.onChange}
                 >
                     {
-                        props.value.map((x) =>
-                            <option
-                                key={x.id}
-                            >
+                        props.authors.map((x) =>
+                            <option key={x.id} >
                                 {x.name}
                             </option>)
                     }
