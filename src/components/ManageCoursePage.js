@@ -31,20 +31,20 @@ const ManageCoursePage = props => {
         })
     }
 
-    // const authors = [
-    //     {
-    //         "id": 1,
-    //         "name": "Cory House"
-    //     },
-    //     {
-    //         "id": 2,
-    //         "name": "Scott Allen"
-    //     },
-    //     {
-    //         "id": 3,
-    //         "name": "Dan Wahlin"
-    //     }
-    // ]
+    const authors = [
+        {
+            "id": 1,
+            "name": "Cory House"
+        },
+        {
+            "id": 2,
+            "name": "Scott Allen"
+        },
+        {
+            "id": 3,
+            "name": "Dan Wahlin"
+        }
+    ]
 
 
 
@@ -79,7 +79,7 @@ const ManageCoursePage = props => {
                 errors={errors}
                 course={course}
                 onChange={handleChange}
-                // authors={authors}
+                authors={authors}
                 onSubmit={handleSubmit}
             />
         </>

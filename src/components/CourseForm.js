@@ -1,11 +1,11 @@
 import React from "react";
 import TextInput from "./common/TextInput";
-// import Select from "./common/Select";
+import Select from "./common/Select";
 import PropTypes from "prop-types";
 
 function CourseForm(props) {
-    // console.log("CourseForm", props.course)
-    // console.log("CourseForm2", props.authors)
+    console.log("Course", props.course)
+    console.log("Author", props.authors)
     return (
         <form onSubmit={props.onSubmit}>
             <TextInput
@@ -16,15 +16,15 @@ function CourseForm(props) {
                 value={props.course.title}
                 error={props.errors.title}
             />
-            {/* <Select
+            <Select
                 id="author"
                 onChange={props.onChange}
                 authors={props.authors}
                 name="authorId"
                 value={props.course.authorId || ""}
-            /> */}
+            />
 
-            <div className="form-group">
+            {/* <div className="form-group">
                 <label htmlFor="author">Author</label>
                 <div className="field">
                     <select
@@ -42,7 +42,7 @@ function CourseForm(props) {
                 {props.errors.authorId && (
                     <div className="alert alert-danger">{props.errors.authorId}</div>
                 )}
-            </div>
+            </div> */}
 
             <TextInput
                 id="category"

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Select(props) {
-    console.log("Select", props.authors[1].name)
+    console.log("Select", props.authors)
     return (
         <>
             <div className="field">
@@ -14,12 +14,15 @@ function Select(props) {
                     onChange={props.onChange}
                 >
                     {
-                        props.authors.map((x) =>
-                            <option key={x.id} >
-                                {x.name}
+                        props.authors.map((_author) =>
+                            <option key={_author.id} >
+                                {_author.name}
                             </option>)
                     }
                 </select>
+                {/* {props.errors.authorId && (
+                    <div className="alert alert-danger">{props.errors.authorId}</div>
+                )} */}
             </div>
         </>
     );
