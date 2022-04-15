@@ -69,36 +69,11 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
-    },
-    {
-      "id": 11,
-      "slug": "q",
-      "title": "q",
-      "authorId": 2,
-      "category": "dd",
-      "createdAt": 1650058417161
-    },
-    {
-      "id": 12,
-      "slug": "aaa",
-      "title": "aaa",
-      "authorId": 2,
-      "category": "qqq",
-      "createdAt": 1650058450503
     }
   ],
   "authors": [
-    {
-      "id": 1,
-      "name": "Cory House"
-    },
-    {
-      "id": 2,
-      "name": "Scott Allen"
-    },
-    {
-      "id": 3,
-      "name": "Dan Wahlin"
-    }
+    { "id": 1, "name": "Cory House" },
+    { "id": 2, "name": "Scott Allen" },
+    { "id": 3, "name": "Dan Wahlin" }
   ]
 }

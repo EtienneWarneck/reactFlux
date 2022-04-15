@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CourseForm from "./CourseForm";
 import * as courseApi from "../api/courseApi"
-// import * as authorApi from "../api/authorApi"
 import { toast } from "react-toastify";
 
 const ManageCoursePage = props => {
@@ -70,12 +69,9 @@ const ManageCoursePage = props => {
         });
     }
 
-
     return (
         <>
             <h2>Manage Course</h2>
-            {/* {props.match.params.slug} */}
-            {/* {slug} */}
             <CourseForm
                 errors={errors}
                 course={course}

@@ -2,10 +2,7 @@ import React from "react";
 import TextInput from "./common/TextInput";
 import Select from "./common/Select";
 import PropTypes from "prop-types";
-
 function CourseForm(props) {
-    console.log("props.course", props.course)
-    console.log("props.authors", props.authors)
     return (
         <form onSubmit={props.onSubmit}>
             <TextInput
@@ -21,30 +18,9 @@ function CourseForm(props) {
                 label="Author"
                 name="authorId"
                 onChange={props.onChange}
-
                 authors={props.authors}
                 value={props.course.authorId || ""}
             />
-
-            {/* <div className="form-group">
-                <label htmlFor="author">Author</label>
-                <div className="field">
-                    <select
-                        id="author"
-                        name="authorId"
-                        onChange={props.onChange}
-                        value={props.course.authorId || ""}
-                        className="form-control"
-                    >
-                        <option value="" />
-                        <option value="1">Cory House</option>
-                        <option value="2">Scott Allen</option>
-                    </select>
-                </div>
-                {props.errors.authorId && (
-                    <div className="alert alert-danger">{props.errors.authorId}</div>
-                )}
-            </div> */}
 
             <TextInput
                 id="category"
