@@ -15,13 +15,12 @@ function Select(props) {
                     onChange={props.onChange}
                 >
 
-                    {props.authors.map((x, i) =>
+                    {props.authors.map((value, i) =>
                         <option
                             key={i}
-                            value={x.authorId}
-                            id={x.authorId}
+                            value={value.authorId}
                         >
-                            {x.name}
+                            {value.name}
                         </option>
 
                     )}
