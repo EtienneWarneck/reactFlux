@@ -31,17 +31,18 @@ const ManageCoursePage = props => {
         })
     }
 
+
     const authors = [
         {
-            "id": 1,
+            "authorId": 1,
             "name": "Cory House"
         },
         {
-            "id": 2,
+            "authorId": 2,
             "name": "Scott Allen"
         },
         {
-            "id": 3,
+            "authorId": 3,
             "name": "Dan Wahlin"
         }
     ]

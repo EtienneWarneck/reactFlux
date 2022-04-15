@@ -1,27 +1,44 @@
 import React from 'react';
 
 function Select(props) {
-    console.log("Select", props.authors)
+    // console.log("props.label =", props.label) //author
+    // console.log("props.name =", props.name)//author
+    // console.log("props.id =", props.id)//author
+    // console.log("props.onChange =", props.onChange) //f()
+    // console.log("props.authors =", props.authors) //array
+
+    // console.log("props.authors =", props.authors) //array
+    // console.log("props.authors =", props.authors) //array
+    console.log("props.value =", props.value) //EMPTY
+
     return (
         <>
             <div className="field">
-                <label htmlFor="author">author</label>
+                <label htmlFor={props.id}>{props.label}</label>
                 <select
+                    id={props.id} //authorId
                     display="none"
+                    type="select"
                     className="form-control"
-                    name="authorId"
-                    value={props.value}
-                    onChange={props.onChange}
+                    name={props.name} //authorId
+                    value={props.value} // authors.authorId
+                    onChange={props.onChange} //f()
                 >
-                    {
-                        props.authors.map((_author) =>
-                            <option key={_author.id} >
-                                {_author.name}
-                            </option>)
-                    }
+
+                    {props.authors.map((x, i) =>
+                        <option
+                            key={i}
+                            value={x.authorId}
+                            id={x.authorId}
+                        >
+                            {x.name}
+                        </option>
+
+                    )}
+
                 </select>
-                {/* {props.errors.authorId && (
-                    <div className="alert alert-danger">{props.errors.authorId}</div>
+                {/* {props.errors && (
+                    <div className="alert alert-danger">{props.errors}</div>
                 )} */}
             </div>
         </>

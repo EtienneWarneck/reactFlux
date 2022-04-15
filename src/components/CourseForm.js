@@ -4,8 +4,8 @@ import Select from "./common/Select";
 import PropTypes from "prop-types";
 
 function CourseForm(props) {
-    console.log("Course", props.course)
-    console.log("Author", props.authors)
+    console.log("props.course", props.course)
+    console.log("props.authors", props.authors)
     return (
         <form onSubmit={props.onSubmit}>
             <TextInput
@@ -17,10 +17,12 @@ function CourseForm(props) {
                 error={props.errors.title}
             />
             <Select
-                id="author"
-                onChange={props.onChange}
-                authors={props.authors}
+                id="authorId"
+                label="Author"
                 name="authorId"
+                onChange={props.onChange}
+
+                authors={props.authors}
                 value={props.course.authorId || ""}
             />
 
