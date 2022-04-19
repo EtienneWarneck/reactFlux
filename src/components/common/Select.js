@@ -12,12 +12,13 @@ function Select(props) {
                     className="form-control"
                     name={props.name}
                     value={props.value}
+                    // defaultValue="Select"
                     onChange={props.onChange}
                 >
-
-                    {props.authors.map((value, i) =>
+                    <option value="none">Select an Option</option>
+                    {props.authors.map((value) =>
                         <option
-                            key={i}
+                            key={value.authorId}
                             value={value.authorId}
                         >
                             {value.name}
